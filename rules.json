@@ -1,0 +1,4 @@
+{
+  "autoApprove": ["mcp__vision__memory_remember", "mcp__vision__canvas_sync"],
+  "alwaysDeny": []
+}

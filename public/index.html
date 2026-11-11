@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VISION · Mission Control</title>
+<link rel="stylesheet" href="hud.css">
+</head>
+<body>
+<main class="hud">
+  <header class="panel brand">
+    <h1>V.I.S.I.O.N.</h1>
+    <p class="objective">OBJECTIVE: <span id="objective">—</span></p>
+  </header>
+  <section class="panel clock">
+    <div class="label">LIVE CLOCK <span id="clock">--:--:--</span></div>
+    <div class="sub"><span id="date">—</span> · SESSION <span id="session">—</span></div>
+  </section>
+
+  <div class="chips">
+    <span class="chip" id="chip-online">OFFLINE</span>
+    <span class="chip on" id="chip-secure" title="Served on 127.0.0.1 only; every change needs your sign-off">LOCAL ONLY</span>
+    <span class="chip" id="chip-mic">MIC OFF</span>
+    <span class="chip" id="chip-patrol">PATROL —</span>
+    <span class="chip" id="chip-model">—</span>
+  </div>
+
+  <section class="panel vitals">
+    <h2>SYSTEM VITALS</h2>
+    <dl>
+      <dt>CPU</dt><dd><span id="v-cpu">—</span><i class="bar"><b id="v-cpu-bar"></b></i></dd>
+      <dt>Latency</dt><dd id="v-latency">—</dd>
+      <dt>Tokens</dt><dd id="v-tokens">0</dd>
+      <dt>Memory depth</dt><dd id="v-depth">0 turns</dd>
+    </dl>
+  </section>
+
+  <section class="center">
+    <canvas id="orb"></canvas>
+    <div class="status" id="status">STANDBY</div>
+    <div class="caption" id="caption">Click anywhere to activate</div>
+    <button id="ptt" type="button">HOLD SPACEBAR TO TALK</button>
+    <form id="typed"><input id="typed-input" autocomplete="off" placeholder="…or type a command and press Enter"></form>
+  </section>
+
+  <section class="panel audio">
+    <h2>AUDIO I/O</h2>
+    <canvas id="wave"></canvas>
+    <div class="sub" id="audio-note">Say “Hey Vision”, or hold the spacebar.</div>
+  </section>
+
+  <section class="panel telemetry">
+    <h2>TELEMETRY LOG</h2>
+    <ol id="log"></ol>
+  </section>
+
+  <section class="panel connectors">
+    <h2>ACTIVE CONNECTORS <button class="mini" id="google-add" type="button" title="Connect a Gmail and Calendar account">ADD GOOGLE</button><button class="mini" id="canvas-sync" type="button" title="Sign in to Canvas and pull everything from your classes">SYNC CANVAS</button><button class="mini" id="patrol-now" type="button" title="Run the Scout now">SCAN</button></h2>
+    <ul id="connectors"><li class="dim">Waiting for the first scan…</li></ul>
+  </section>
+
+  <section class="panel actions">
+    <h2>PRIORITY ACTIONS <span class="sub" id="actions-at"></span>
+      <button class="mini" id="advise-now" type="button" title="Ask the Advisor to re-rank">RE-RANK</button></h2>
+    <ol id="actions"><li class="dim">The Advisor ranks your top three after the first Scout patrol.</li></ol>
+  </section>
+</main>
+
+<div class="overlay" id="approval" hidden>
+  <div class="card">
+    <h2>SIGN-OFF REQUIRED</h2>
+    <p id="approval-title"></p>
+    <pre id="approval-input"></pre>
+    <div class="row">
+      <button id="approve" type="button">APPROVE</button>
+      <button id="deny" type="button" class="deny">DENY</button>
+    </div>
+    <p class="sub">Or hold the spacebar and say “approve” or “deny”. Nothing happens until you answer.</p>
+  </div>
+</div>
+<script src="hud.js" type="module"></script>
+</body>
+</html>
